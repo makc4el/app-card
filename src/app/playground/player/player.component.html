@@ -1,0 +1,19 @@
+<div class="player_game_board">
+  <div class="player_place">
+    <ul class="player_card_list">
+      <li class="player_card_item" *ngFor="let card of cardList">
+        <app-card [cardObj]="card"></app-card>
+      </li>
+    </ul>
+  </div>
+
+  <div class="player_tile">
+    <div class="player_tile_image">
+      <img src="{{playerInfo.img}}" alt="{{playerInfo.name}}">
+    </div>
+    <div class="player_tile_info_block">
+      <span class="player_tile_bank">{{playerInfo.bank | currency:'USD':'symbol-narrow'}}</span>
+      <span class="player_tile_name">{{playerInfo.name}}</span>
+    </div>
+  </div>
+</div>

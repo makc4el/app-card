@@ -1,0 +1,97 @@
+<div class="main_playground_wrapper">
+  <div class="playground_area">
+    <div class="playground_header_croupie">
+
+    </div>
+    <div class="playground_table">
+        <app-card [cardObj]="{
+            value: '7',
+            suit: 'heart',
+            safetyMod: false
+          }"></app-card>
+          <app-card [cardObj]="{
+            value: 'K',
+            suit: 'diamond',
+            safetyMod: false
+          }"></app-card>
+          <app-card [cardObj]="{
+            value: 'A',
+            suit: 'club',
+            safetyMod: false
+          }"></app-card>
+          <app-card [cardObj]="{
+            value: '9',
+            suit: 'spade',
+            safetyMod: false
+          }"></app-card>
+          <app-card [cardObj]="{
+            value: '2',
+            suit: 'spade',
+            safetyMod: false
+          }"></app-card>
+    </div>
+    <div class="playground_players_list">
+      <div class="playground_player_wrapper playground_player_top">
+          <app-player [playerInfo]="{
+            name: 'Maksym Odarchenko',
+            bank: 2800,
+            img: 'assets/img/user/ava.png'
+          }" [cardList]="[
+          {
+            value: 'Q',
+            suit: 'diamond',
+            safetyMod: false,
+            customClass: 'player_deck'
+          },
+          {
+            value: '6',
+            suit: 'club',
+            safetyMod: false,
+            customClass: 'player_deck'
+          }
+        ]"></app-player>
+      </div>
+      <div class="playground_player_wrapper playground_player_center">
+          <app-player [playerInfo]="{
+            name: 'Bob Marley',
+            bank: 1400,
+            img: 'https://www.reggaeville.com/fileadmin/artists/bobmarley.jpg'
+          }" [cardList]="[
+          {
+            value: 'A',
+            suit: 'spade',
+            safetyMod: false,
+            customClass: 'player_deck'
+          },
+          {
+            value: 'K',
+            suit: 'club',
+            safetyMod: false,
+            customClass: 'player_deck'
+          }
+        ]"></app-player>
+      </div>
+      <div class="playground_player_wrapper playground_player_top">
+          <app-player [playerInfo]="{
+            name: 'Anton Ilchuk',
+            bank: 800,
+            img: 'https://scontent.fods2-1.fna.fbcdn.net/v/t1.0-9/60216471_2238506406241423_5855272332737642496_n.jpg?_nc_cat=105&_nc_oc=AQkFR1Apcqf_P2HaZZf3o_ViDRe_m-oNMtzG9LLO7IYTZTrY9Iofo-Bs_lrKbaLX2H8&_nc_ht=scontent.fods2-1.fna&oh=829fed0396b36fff03d17311c8b66a3e&oe=5E038C98'
+          }" [cardList]="[
+          {
+            value: 'K',
+            suit: 'spade',
+            safetyMod: false,
+            customClass: 'player_deck'
+          },
+          {
+            value: '8',
+            suit: 'heart',
+            safetyMod: false,
+            customClass: 'player_deck'
+          }
+        ]"></app-player>
+      </div>
+    </div>
+  </div>
+
+</div>

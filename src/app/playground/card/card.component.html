@@ -1,0 +1,22 @@
+<div [className]="'card_'+cardConfig[cardObj.suit].scheme+'_scheme card_item '+ getAttr(cardObj.customClass)" (click)="takeItem($event)">
+  <div *ngIf="!cardObj.safetyMod" class="card_item_row card_item_row_top">
+    <span class="card_value">
+      {{cardObj.value}}   
+    </span>
+    <span class="card_suit">
+      {{cardConfig[cardObj.suit].symbol}}
+    </span>
+  </div>
+
+  <img *ngIf="!cardObj.safetyMod" src="{{cardConfig[cardObj.suit].img}}" alt="card image" class="card_image" /> 
+
+  <div *ngIf="!cardObj.safetyMod" class="card_item_row card_item_row_bottom">
+      <span class="card_value">
+        {{cardObj.value}}    
+      </span>
+      <span class="card_suit">
+        {{cardConfig[cardObj.suit].symbol}}
+      </span>
+  </div>
+  <div *ngIf="cardObj.safetyMod" class="card_item_back_side"></div>
+</div>

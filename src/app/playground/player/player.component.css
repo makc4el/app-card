@@ -1,0 +1,69 @@
+.player_card_item {
+    list-style: none;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.player_tile {
+    font-size: 10px;
+    width: 100%;
+    background: rgba(255, 255, 2555, 0.6);
+    position: relative;
+    border: 2px solid #000;
+    border-radius: 5px;
+}
+
+.player_tile_image {
+    width: 6em;
+    height: 6em;
+    display: block;
+    text-align: center;
+    border-radius: 50%;
+    position: absolute;
+    right: 0;
+    top: -2px;
+    transform: translate(50%,0);
+    border: 2px solid #000;
+    overflow: hidden;
+}
+
+.player_tile_image img {
+    width: 100%;
+    height: auto;
+}
+
+.player_tile_info_block {
+    font-size: 1.4em;
+    padding: 0.6em;
+    font-family: sans-serif;
+    font-weight: 600;
+    height: 4.3em;
+    padding-right: 3em;
+    box-sizing: border-box;
+}
+
+.player_tile_bank {
+    display: block;
+    font-size: 1.5em;
+    margin-bottom: 0.1em;
+}
+
+.player_tile_name {
+    display: block;
+    font-size: 1.1em;
+}
+
+.player_card_list {
+    margin: 0;
+    margin-block-end: 0;
+    margin-block-start: 0;
+    padding-inline-start: 0;
+}
+
+.player_game_board {
+    width: 25em;
+    font-size: 10px;
+    margin-top: 5em;
+    display: inline-block;
+    text-align: center; 
+}

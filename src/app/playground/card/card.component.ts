@@ -1,19 +1,27 @@
 import { Component, OnInit, Input } from '@angular/core';
-import cardJson from './card-json.json';
+import { HttpRequestService } from './../../core/http-request.service';
+import cardJson from './../../../assets/json/internal/card-json.json';
 
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
-  styleUrls: ['./card.component.css']
+  styleUrls: ['./card.component.css'],
+  providers: [HttpRequestService]
 })
 export class CardComponent implements OnInit {
   @Input() cardObj: {value:string, suit:string, mod:boolean};
-  cardConfig: any  = cardJson; 
+  cardConfig: any ;
 
-  constructor() { }
+  constructor(private httpService: HttpRequestService) { 
+
+  }
 
   ngOnInit() {
-    console.log(this.cardObj, 'cardObj.suit');
+    this.updateData();
+  }
+
+  updateData() {
+    this.cardConfig = cardJson;
   }
 
   getAttr(attr) {
@@ -21,8 +29,6 @@ export class CardComponent implements OnInit {
   }
 
   takeItem(val) {
-    console.log(val,'val');
-    console.log(this,'this');
   }
 
 }

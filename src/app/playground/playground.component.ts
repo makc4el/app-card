@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { CardDeckService } from '../card-deck/card-deck.service';
+import { GlobalStoreService } from './../core/global-store.service';
+import cardJson from './../../assets/json/internal/card-json.json';
 
 @Component({
   selector: 'app-playground',
@@ -6,10 +9,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./playground.component.css']
 })
 export class PlaygroundComponent implements OnInit {
+  cardTypes: any;
 
-  constructor() { }
+  constructor(private cardDeckService: CardDeckService, private GlobalStore: GlobalStoreService) {
+  }
+
+  getData() {
+    this.GlobalStore.saveData('cardJson', cardJson);
+  }
 
   ngOnInit() {
+    this.getData();
   }
 
 }

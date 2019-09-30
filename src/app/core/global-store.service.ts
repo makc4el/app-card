@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
-import { Observable, Observer, Subject } from 'rxjs';
+import { Observable, Subject, ReplaySubject } from 'rxjs';
+import { mergeAll } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class GlobalStoreService {
-  public globalStore = new Subject<any>();
+  globalStore = new ReplaySubject<any>();
+  globalObj: any = {};
 
   constructor() {
   }
@@ -15,10 +17,14 @@ export class GlobalStoreService {
     return this.globalStore.asObservable();
   }
 
+  removeData(key) {
+    delete this.globalObj[key];
+    this.globalStore.next(this.globalObj);
+  }
+
   saveData(key:string, value:any) {
-    let obj = {};
-    obj[key] = value;
-    this.globalStore.next(obj);
+    this.globalObj[key] = value;
+    this.globalStore.next(this.globalObj);
   }
 
 }

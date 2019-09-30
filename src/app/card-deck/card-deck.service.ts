@@ -10,7 +10,6 @@ export class CardDeckService {
   deckJson: any;
   
   constructor(private http: HttpRequestService, private globalStore: GlobalStoreService) { 
-    this.getDeck();
   }
 
   generateDeck(obj) {
@@ -30,7 +29,7 @@ export class CardDeckService {
     this.http.getData('./../assets/json/external/deck-json.json').subscribe((resonse) => {
       this.deckJson = resonse;
       let cardDeck = this.generateDeck(this.deckJson);
-      this.globalStore.saveData('cardDeck', cardDeck);
+      // this.globalStore.saveData('cardDeck', cardDeck);
     });
   }
 }

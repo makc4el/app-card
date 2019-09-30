@@ -15,7 +15,12 @@ export class PlaygroundComponent implements OnInit {
   }
 
   getData() {
+    this.GlobalStore.getData().subscribe( (data) => {
+      console.log(data,'data');
+    });
+
     this.GlobalStore.saveData('cardJson', cardJson);
+    // this.GlobalStore.removeData('cardJson2');
   }
 
   ngOnInit() {

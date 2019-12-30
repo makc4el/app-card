@@ -7,8 +7,8 @@ import { PlaygroundModule } from './playground/playground.module';
 import { InfoComponent } from './info/info.component';
 import { HeaderComponent } from './header/header.component';
 import { HttpClientModule }   from '@angular/common/http';
-import { GlobalStoreService } from './core/global-store.service';
-import { CardDeckService } from './card-deck/card-deck.service';
+import { DeckService } from './services/deck.service';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -20,9 +20,12 @@ import { CardDeckService } from './card-deck/card-deck.service';
     BrowserModule,
     AppRoutingModule,
     PlaygroundModule,
-    HttpClientModule
+    HttpClientModule,
+    NoopAnimationsModule,
   ],
-  providers: [GlobalStoreService, CardDeckService],
+  providers: [
+    DeckService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -4,6 +4,19 @@
     vertical-align: top;
 }
 
+.card_placeholder {
+    width: 15em;
+    background: transparent;
+    border: 3px solid transparent;
+    border-radius: 5px;
+    height: 20em;
+    font-size: 5px;
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    margin: 2.5px;
+}
+
 .player_tile {
     font-size: 10px;
     width: 100%;
@@ -25,6 +38,12 @@
     transform: translate(50%,0);
     border: 2px solid #000;
     overflow: hidden;
+}
+
+.player_place {
+    width: 200%;
+    text-align: center;
+    transform: translateX(-25%);
 }
 
 .player_tile_image img {
@@ -61,8 +80,8 @@
 }
 
 .player_game_board {
-    width: 25em;
-    font-size: 10px;
+    width: 16em;
+    font-size: 15px;
     margin-top: 5em;
     display: inline-block;
     text-align: center; 

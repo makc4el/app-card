@@ -1,23 +1,28 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { GlobalStoreService } from './../../core/global-store.service';
+import { Player } from './../../classes/player.class';
+import { Card } from 'src/app/classes/card.class';
+import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 
 @Component({
-  selector: 'app-player',
+  selector: 'player',
   templateUrl: './player.component.html',
   styleUrls: ['./player.component.css']
 })
 export class PlayerComponent implements OnInit {
-  @Input() playerInfo: {name:string, bank:number, img:string};
+  @Input() player: Player;
+  public cards: Card[];
 
-  @Input() cardList: {value:string, suit:string, mod:boolean}[];
-
-  cardConfig: any;
-
-
-  constructor(private GlobalStore: GlobalStoreService) {
+  constructor() {
   }
 
   ngOnInit() {
+    this.player.getCardList().subscribe((card) => {
+      this.cards = card;
+    })
+  }
+
+  drop(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this.cards, event.previousIndex, event.currentIndex);
   }
 
 }

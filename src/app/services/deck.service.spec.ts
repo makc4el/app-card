@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { GlobalStoreService } from './global-store.service';
+import { DeckService } from './deck.service';
 
-describe('GlobalStoreService', () => {
+describe('DeckService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: GlobalStoreService = TestBed.get(GlobalStoreService);
+    const service: DeckService = TestBed.get(DeckService);
     expect(service).toBeTruthy();
   });
 });

@@ -1,19 +1,20 @@
 <div class="player_game_board">
   <div class="player_place">
-    <ul class="player_card_list">
-      <li class="player_card_item" *ngFor="let card of cardList">
-        <app-card [cardObj]="card"></app-card>
-      </li>
-    </ul>
+    <div cdkDropList cdkDropListOrientation="horizontal" class="player_card_list"  (cdkDropListDropped)="drop($event)">
+      <div class="player_card_item" *ngFor="let card of cards" cdkDrag>
+        <card [card]="card"></card>
+        <div class="card_placeholder" *cdkDragPlaceholder></div>
+      </div>
+    </div>
   </div>
 
   <div class="player_tile">
     <div class="player_tile_image">
-      <img src="{{playerInfo.img}}" alt="{{playerInfo.name}}">
+      <img src="{{player.image}}" alt="{{player.name}}">
     </div>
     <div class="player_tile_info_block">
-      <span class="player_tile_bank">{{playerInfo.bank | currency:'USD':'symbol-narrow'}}</span>
-      <span class="player_tile_name">{{playerInfo.name}}</span>
+      <span class="player_tile_bank">{{player.bank | currency:'USD':'symbol-narrow'}}</span>
+      <span class="player_tile_name">{{player.name}}</span>
     </div>
   </div>
 </div>

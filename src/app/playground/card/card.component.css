@@ -4,13 +4,13 @@
     border: 3px solid #000;
     border-radius: 5px;
     height: 20em;
-    font-size: 10px;
+    font-size: 5px;
     cursor: pointer;
     position: relative;
     transition-duration: 0.3s;
     display: inline-block;
     vertical-align: top;
-    margin: 10px;
+    margin: 2.5px;
     -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
      -khtml-user-select: none; /* Konqueror HTML */
@@ -81,7 +81,7 @@
     transform: rotate(180deg);
 }
 
-.card_item_back_side {
+/* .card_item_back_side {
     background: url(/assets/img/card/card-back-single.png) no-repeat center;
     position: absolute;
     z-index: 2;
@@ -91,4 +91,4 @@
     top: 0;
     left: 0;
     background-size: cover;
-}
+} */

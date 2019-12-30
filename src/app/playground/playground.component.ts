@@ -1,30 +1,48 @@
 import { Component, OnInit } from '@angular/core';
-import { CardDeckService } from '../card-deck/card-deck.service';
-import { GlobalStoreService } from './../core/global-store.service';
-import cardJson from './../../assets/json/internal/card-json.json';
+import { player1, player2, player3 } from './../mock-data/players';
+import { Playground } from './../classes/playground.class';
+import { Deck } from './../classes/deck.class';
+import { DeckMock } from './../mock-data/deck';
+import { Card } from '../classes/card.class';
+import { Croupier } from './../classes/croupier.class'; 
+import { Player } from '../classes/player.class';
 
 @Component({
-  selector: 'app-playground',
+  selector: 'playground',
   templateUrl: './playground.component.html',
   styleUrls: ['./playground.component.css']
 })
 export class PlaygroundComponent implements OnInit {
-  cardTypes: any;
+  private playground: Playground;
+  private deck: Deck;
+  private coupier: Croupier;
 
-  constructor(private cardDeckService: CardDeckService, private GlobalStore: GlobalStoreService) {
-  }
+  public playersList: Player[];
 
-  getData() {
-    this.GlobalStore.getData().subscribe( (data) => {
-      console.log(data,'data');
-    });
-
-    this.GlobalStore.saveData('cardJson', cardJson);
-    // this.GlobalStore.removeData('cardJson2');
+  constructor(
+  ) {
   }
 
   ngOnInit() {
-    this.getData();
-  }
+    let index = 0;
+    this.deck = Deck.build([]);
+    for(let suit of DeckMock.suitTypes) {
+      for (let value of DeckMock.suitValue) {
+        this.deck.addCard(Card.build({value, suit, id: index}));
+        index++;
+      }
+    }
 
+    this.coupier = Croupier.build({Deck: this.deck});
+    this.playground = Playground.build({croupier: this.coupier});
+    this.playground.addPlayers([player1, player2, player3]);
+
+    this.playground.getPlayers().subscribe( (data) => {
+      this.playersList = data;
+      this.playground.giveCard();
+    });
+
+
+    // this.coupier.setCards();
+  }
 }

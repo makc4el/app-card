@@ -13,12 +13,22 @@
 .playground_players_list {
     position: relative;
     text-align: center;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.playground_players_list:nth-child(2) {
+    transform: translateY(100%);
 }
 
 .playground_player_wrapper {
     display: inline-block;
     vertical-align: top;
     padding: 0 50px;
+}
+
+.playground_area {
+    text-align: center;
 }
 
 .playground_table {

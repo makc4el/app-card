@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { GlobalStoreService } from './../core/global-store.service';
 
 @Component({
   selector: 'app-info',

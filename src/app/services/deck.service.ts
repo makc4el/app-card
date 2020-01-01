@@ -8,7 +8,8 @@ import { BehaviorSubject } from 'rxjs';
 export class DeckService {
   private deck$: BehaviorSubject<Deck> = new BehaviorSubject(undefined);
 
-  constructor() { }
+  constructor() { 
+  }
 
   setDeck(deck: Deck) {
     this.deck$.next(deck);
@@ -16,9 +17,5 @@ export class DeckService {
 
   getDeck(): BehaviorSubject<Deck> {
     return this.deck$;
-  }
-
-  getValue(): Deck {
-    return this.deck$.getValue();
   }
 }

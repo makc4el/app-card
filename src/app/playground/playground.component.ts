@@ -35,13 +35,16 @@ export class PlaygroundComponent implements OnInit {
 
     this.coupier = Croupier.build({Deck: this.deck});
     this.playground = Playground.build({croupier: this.coupier});
-    this.playground.addPlayers([player1, player2, player3]);
+    this.playground.setPlayers([player1, player2, player3]);
 
     this.playground.getPlayers().subscribe( (data) => {
       this.playersList = data;
       this.playground.giveCard();
+      this.playground.giveCard();
+      this.playground.giveCard();
+      this.playground.giveCard();
+      this.playground.giveCard();
     });
-
 
     // this.coupier.setCards();
   }

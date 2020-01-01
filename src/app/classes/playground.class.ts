@@ -14,12 +14,17 @@ export class Playground {
         return playground;
     }
 
-    addPlayers(players) {
+    setPlayers(players) {
        const playersList = players.reduce((arr, player) => {
             arr.push(Player.build(player));
             return arr;
         }, this.players$.getValue());
         this.players$.next(playersList);
+    }
+
+    setCroupier(croupier: Croupier) {
+        this.croupier = croupier;
+        return this;
     }
 
     getPlayers(): BehaviorSubject<Player[]> {
@@ -30,23 +35,9 @@ export class Playground {
         return this.players$.getValue();
     }
 
-
     giveCard() {
-        this.croupier.deck.getDeckStream().subscribe((deck) => {
-            this.croupier.setDeckList(deck);
-            this.getPlayersList().forEach( (player) => {
-                player.addCardToList(this.croupier.getRandomCard());
-                player.addCardToList(this.croupier.getRandomCard());
-                player.addCardToList(this.croupier.getRandomCard());
-                player.addCardToList(this.croupier.getRandomCard());
-                player.addCardToList(this.croupier.getRandomCard());
-            });
+        this.getPlayersList().forEach( (player) => {
+            player.addCardToList(this.croupier.getRandomCard());
         });
-        // console.log(123);
-    }
-
-    setCroupier(croupier: Croupier) {
-        this.croupier = croupier;
-        return this;
     }
 }

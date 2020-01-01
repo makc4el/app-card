@@ -13,8 +13,8 @@ export class Player {
     static build({name, bank, img}) {
         const player = new Player()
             .setName(name)
-            .setBank(bank)
             .setImage(img)
+            .setBank(bank)
         
         return player;
     }
@@ -32,10 +32,6 @@ export class Player {
     setImage(img: string) {
         this.image = img;
         return this;
-    }
-
-    get cardList(): Card[] {
-        return this.cards$.getValue()
     }
 
     getCardList(): BehaviorSubject<Card[]> {

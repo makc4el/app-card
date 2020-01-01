@@ -3,10 +3,12 @@ import { Deck } from './deck.class';
 import { Card } from './card.class';
 
 export class Croupier {
-    public deck: Deck;
-    private deckList: Card[];
+    deck: Deck;
+    cardList: Card[];
 
-    constructor() {}
+    constructor() {
+
+    }
 
     static build({Deck}) {
         const croupier = new Croupier()
@@ -17,11 +19,10 @@ export class Croupier {
 
     setDeck(deck: Deck) {
         this.deck = deck;
-        return this;
-    }
+        this.deck.getDeck().subscribe((cards) => {
+            this.cardList = cards;
+        })
 
-    setDeckList(deckList) {
-        this.deckList = deckList;
         return this;
     }
 
@@ -30,13 +31,13 @@ export class Croupier {
     }
 
     getCard(index) {
-        const slectedCard = this.deckList[index];
-        this.deckList = this.deckList.filter((data) => data.id != slectedCard.id);
+        const slectedCard = this.cardList[index];
+        this.cardList = this.cardList.filter((data) => data.id != slectedCard.id);
         return slectedCard;
     }
 
     getRandomCard() {
-        const randomIndex = this.makeRandom(this.deckList.length);
+        const randomIndex = this.makeRandom(this.cardList.length);
         return this.getCard(randomIndex);
     }
 }

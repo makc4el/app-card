@@ -14,8 +14,8 @@ export class Player {
     static build({name, bank, img}) {
         const player = new Player()
             .setName(name)
-            .setBank(bank)
             .setImage(img)
+            .setBank(bank)
         
         return player;
     }
@@ -35,6 +35,7 @@ export class Player {
         return this;
     }
 
+<<<<<<< HEAD
     get name() {
         return this._name;
     }
@@ -52,6 +53,9 @@ export class Player {
     }
 
     getCardsListStream(): BehaviorSubject<Card[]> {
+=======
+    getCardList(): BehaviorSubject<Card[]> {
+>>>>>>> a99233471d28d3bc4fb51e32bbe012eef02b8048
         return this.cards$;
     }
 

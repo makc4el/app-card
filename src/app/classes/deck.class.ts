@@ -1,5 +1,5 @@
 import { Card } from "./card.class";
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, of } from 'rxjs';
 import { filter } from 'minimatch';
 
 export class Deck {

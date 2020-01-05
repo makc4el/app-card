@@ -5,7 +5,9 @@ export class Croupier {
     private deck: Deck;
     private cardsList: Card[];
 
-    constructor() {}
+    constructor() {
+
+    }
 
     static build({Deck}) {
         const croupier = new Croupier()

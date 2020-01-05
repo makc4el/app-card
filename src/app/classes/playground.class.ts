@@ -23,6 +23,11 @@ export class Playground {
     //     this.players$.next(playersList);
     }
 
+    setCroupier(croupier: Croupier) {
+        this.croupier = croupier;
+        return this;
+    }
+
     getPlayers(): BehaviorSubject<Player[]> {
         // return this.players$;
     }

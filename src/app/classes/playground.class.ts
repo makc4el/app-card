@@ -1,17 +1,18 @@
 import { Player } from './player.class';
 import { BehaviorSubject } from 'rxjs';
 import { Croupier } from './croupier.class';
+import { Deck } from './deck.class';
 
 export class Playground {
     private players: Player[];
-    private croupier: Croupier;
+    private _croupier: Croupier;
     // private players$: BehaviorSubject<Player[]> = new BehaviorSubject([]);
 
     constructor() {}
 
-    static build({croupier}) {
+    static build({Deck}): Playground {
         const playground = new Playground()
-        .setCroupier(croupier)
+        .setCroupier(Deck);
         return playground;
     }
 
@@ -23,18 +24,18 @@ export class Playground {
     //     this.players$.next(playersList);
     }
 
-    setCroupier(croupier: Croupier) {
-        this.croupier = croupier;
+    setCroupier(deck: Deck) {
+        this._croupier = Croupier.build({Deck: deck});
         return this;
     }
 
-    getPlayers(): BehaviorSubject<Player[]> {
+    // getPlayers(): BehaviorSubject<Player[]> {
         // return this.players$;
-    }
+    // }
 
-    getPlayersList(): Player[] {
+    // getPlayersList(): Player[] {
         // return this.players$.getValue();
-    }
+    // }
 
 
     giveCardForEach() {
@@ -48,10 +49,5 @@ export class Playground {
 
     giveCardToTable() {
 
-    }
-
-    setCroupier(croupier: Croupier) {
-        // this.croupier = croupier;
-        // return this;
     }
 }

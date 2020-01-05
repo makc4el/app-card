@@ -32,14 +32,14 @@ export class PlaygroundComponent implements OnInit {
       }
     }
 
-    this.coupier = Croupier.build({Deck: this.deck});
-    this.playground = Playground.build({croupier: this.coupier});
-    this.playground.setPlayers([player1, player2, player3]);
+    this.playground = Playground.build({Deck: this.deck});
 
-    this.playground.getPlayers().subscribe( (data) => {
-      this.playersList = data;
-      this.playground.giveCardForEach();
-    });
+    // this.playground.setPlayers([player1, player2, player3]);
+
+    // this.playground.getPlayers().subscribe( (data) => {
+    //   this.playersList = data;
+    //   this.playground.giveCardForEach();
+    // });
   }
 
   ngOnInit() {

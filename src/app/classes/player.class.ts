@@ -3,9 +3,10 @@ import { Card } from './card.class';
 
    
 export class Player {
-    private name: string;
-    private bank: number;
-    private image: string;
+    private _name: string;
+    private _bank: number;
+    private _image: string;
+    private _cardsList: Card[] = [];
     private cards$: BehaviorSubject<Card[]> = new BehaviorSubject([]);
 
     constructor() {}
@@ -20,31 +21,42 @@ export class Player {
     }
 
     setName(name: string) {
-        this.name = name;
+        this._name = name;
         return this;
     }
 
     setBank(bank: number) {
-        this.bank = bank;
+        this._bank = bank;
         return this;
     }
 
     setImage(img: string) {
-        this.image = img;
+        this._image = img;
         return this;
     }
 
-    get cardList(): Card[] {
-        return this.cards$.getValue()
+    get name() {
+        return this._name;
     }
 
-    getCardList(): BehaviorSubject<Card[]> {
+    get bank() {
+        return this._bank;
+    }
+
+    get image() {
+        return this._image;
+    }
+
+    get cardsList(): Card[] {
+        return this._cardsList;
+    }
+
+    getCardsListStream(): BehaviorSubject<Card[]> {
         return this.cards$;
     }
 
     addCardToList(card: Card) {
-        const cardList = this.cards$.getValue();
-        cardList.push(card);
-        this.cards$.next(cardList);
+        this._cardsList.push(card);
+        this.cards$.next(this._cardsList);
     }
 }

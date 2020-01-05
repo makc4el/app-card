@@ -3,14 +3,14 @@
     <div class="playground_header_croupie">
     </div>
     <div class="playground_table">
-      <!-- <app-croupier></app-croupier> -->
+      <pg-playtable></pg-playtable>
     </div>
     <div class="playground_players_wrapper">
       <div class="playground_players_list" *ngFor="let player of playersList">
           <div class="playground_player_wrapper">
-            <player 
+            <pg-player 
             [player]="player"
-            ></player>
+            ></pg-player>
         </div>
       </div>
     </div>

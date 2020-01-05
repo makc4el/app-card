@@ -4,7 +4,7 @@ import { Card } from 'src/app/classes/card.class';
 import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 
 @Component({
-  selector: 'player',
+  selector: 'pg-player',
   templateUrl: './player.component.html',
   styleUrls: ['./player.component.css']
 })
@@ -16,13 +16,13 @@ export class PlayerComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.player.getCardList().subscribe((card) => {
-      this.cards = card;
-    })
+    // this.player.getCardList().subscribe((card) => {
+    //   this.cards = card;
+    // })
   }
 
-  drop(event: CdkDragDrop<string[]>) {
-    moveItemInArray(this.cards, event.previousIndex, event.currentIndex);
-  }
+  // drop(event: CdkDragDrop<string[]>) {
+  //   moveItemInArray(this.cards, event.previousIndex, event.currentIndex);
+  // }
 
 }

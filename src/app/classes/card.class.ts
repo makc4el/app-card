@@ -1,9 +1,9 @@
 import { CardSuit, CardValue } from "./../enums/card.enum";
 
 export class Card {
-    public value: CardValue;
-    public suit: CardSuit;
-    public id: number;
+    private _value: CardValue;
+    private _suit: CardSuit;
+    private _id: number;
 
     constructor() {}
 
@@ -17,17 +17,29 @@ export class Card {
     }
 
     setId(id: number) {
-        this.id = id;
+        this._id = id;
         return this;
     }
 
     setValue(value: CardValue) {
-        this.value = value;
-        return this;
-    } 
-
-    setSuit(suit: CardSuit) {
-        this.suit = suit;
+        this._value = value;
         return this;
     }
+
+    setSuit(suit: CardSuit) {
+        this._suit = suit;
+        return this;
+    }
+
+    get id() {
+        return this._id;
+    }
+    get value() {
+        return this._value;
+    }
+
+    get suit() {
+        return this._suit;
+    }
+
 }

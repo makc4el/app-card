@@ -2,7 +2,7 @@
   <div class="player_place">
     <div cdkDropList cdkDropListOrientation="horizontal" class="player_card_list"  (cdkDropListDropped)="drop($event)">
       <div class="player_card_item" *ngFor="let card of cards" cdkDrag>
-        <card [card]="card"></card>
+        <pg-card [card]="card"></pg-card>
         <div class="card_placeholder" *cdkDragPlaceholder></div>
       </div>
     </div>

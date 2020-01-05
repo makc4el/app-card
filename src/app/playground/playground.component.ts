@@ -6,9 +6,10 @@ import { DeckMock } from './../mock-data/deck';
 import { Card } from '../classes/card.class';
 import { Croupier } from './../classes/croupier.class'; 
 import { Player } from '../classes/player.class';
+import { DeckService } from '../services/deck.service';
 
 @Component({
-  selector: 'playground',
+  selector: 'pg-playground',
   templateUrl: './playground.component.html',
   styleUrls: ['./playground.component.css']
 })
@@ -20,10 +21,8 @@ export class PlaygroundComponent implements OnInit {
   public playersList: Player[];
 
   constructor(
+    private deckService: DeckService
   ) {
-  }
-
-  ngOnInit() {
     let index = 0;
     this.deck = Deck.build([]);
     for(let suit of DeckMock.suitTypes) {
@@ -39,10 +38,10 @@ export class PlaygroundComponent implements OnInit {
 
     this.playground.getPlayers().subscribe( (data) => {
       this.playersList = data;
-      this.playground.giveCard();
+      this.playground.giveCardForEach();
     });
+  }
 
-
-    // this.coupier.setCards();
+  ngOnInit() {
   }
 }

@@ -3,8 +3,9 @@ import { BehaviorSubject } from 'rxjs';
 import { Croupier } from './croupier.class';
 
 export class Playground {
-    private players$: BehaviorSubject<Player[]> = new BehaviorSubject([]);
+    private players: Player[];
     private croupier: Croupier;
+    // private players$: BehaviorSubject<Player[]> = new BehaviorSubject([]);
 
     constructor() {}
 
@@ -15,38 +16,37 @@ export class Playground {
     }
 
     addPlayers(players) {
-       const playersList = players.reduce((arr, player) => {
-            arr.push(Player.build(player));
-            return arr;
-        }, this.players$.getValue());
-        this.players$.next(playersList);
+    //    const playersList = players.reduce((arr, player) => {
+    //         arr.push(Player.build(player));
+    //         return arr;
+    //     }, this.players$.getValue());
+    //     this.players$.next(playersList);
     }
 
     getPlayers(): BehaviorSubject<Player[]> {
-        return this.players$;
+        // return this.players$;
     }
 
     getPlayersList(): Player[] {
-        return this.players$.getValue();
+        // return this.players$.getValue();
     }
 
 
-    giveCard() {
-        this.croupier.deck.getDeckStream().subscribe((deck) => {
-            this.croupier.setDeckList(deck);
-            this.getPlayersList().forEach( (player) => {
-                player.addCardToList(this.croupier.getRandomCard());
-                player.addCardToList(this.croupier.getRandomCard());
-                player.addCardToList(this.croupier.getRandomCard());
-                player.addCardToList(this.croupier.getRandomCard());
-                player.addCardToList(this.croupier.getRandomCard());
-            });
-        });
-        // console.log(123);
+    giveCardForEach() {
+        // this.croupier.deck.getDeckStream().subscribe((deck) => {
+        //     this.croupier.setDeckList(deck);
+        //     this.getPlayersList().forEach( (player) => {
+        //         player.addCardToList(this.croupier.getRandomCard());
+        //     });
+        // });
+    }
+
+    giveCardToTable() {
+
     }
 
     setCroupier(croupier: Croupier) {
-        this.croupier = croupier;
-        return this;
+        // this.croupier = croupier;
+        // return this;
     }
 }

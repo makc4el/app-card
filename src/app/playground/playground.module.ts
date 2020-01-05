@@ -3,16 +3,16 @@ import { CommonModule } from '@angular/common';
 import { PlaygroundComponent } from './playground.component';
 import { PlayerComponent } from './player/player.component';
 import { CardComponent } from './card/card.component';
-import { CroupierComponent } from './croupier/croupier.component';
 import { FormsModule } from '@angular/forms';
-import { DragDropModule  } from '@angular/cdk/drag-drop'
+import { DragDropModule  } from '@angular/cdk/drag-drop';
+import { PlaytableComponent } from './playtable/playtable.component'
 
 @NgModule({
   declarations: [
     PlaygroundComponent, 
     PlayerComponent,
     CardComponent,
-    CroupierComponent
+    PlaytableComponent,
   ],
   imports: [
     CommonModule,

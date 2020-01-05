@@ -3,7 +3,7 @@ import { Card } from 'src/app/classes/card.class.js';
 import { cardImg } from './card-symbol';
 
 @Component({
-  selector: 'card',
+  selector: 'pg-card',
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.css'],
 })

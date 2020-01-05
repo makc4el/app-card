@@ -1,10 +1,9 @@
-import { Player } from './player.class';
 import { Deck } from './deck.class';
 import { Card } from './card.class';
 
 export class Croupier {
-    public deck: Deck;
-    private deckList: Card[];
+    private deck: Deck;
+    private cardsList: Card[];
 
     constructor() {}
 
@@ -17,11 +16,10 @@ export class Croupier {
 
     setDeck(deck: Deck) {
         this.deck = deck;
-        return this;
-    }
+        this.deck.getDeckStream().subscribe( (cards) => {
+            this.cardsList = cards;
+        })
 
-    setDeckList(deckList) {
-        this.deckList = deckList;
         return this;
     }
 
@@ -29,14 +27,8 @@ export class Croupier {
         return Math.floor(Math.random() * length);  
     }
 
-    getCard(index) {
-        const slectedCard = this.deckList[index];
-        this.deckList = this.deckList.filter((data) => data.id != slectedCard.id);
-        return slectedCard;
-    }
-
     getRandomCard() {
-        const randomIndex = this.makeRandom(this.deckList.length);
-        return this.getCard(randomIndex);
+        const randomIndex = this.makeRandom(this.cardsList.length);
+        return this.deck.getCard(randomIndex);
     }
 }

@@ -3,6 +3,7 @@ import { BehaviorSubject } from 'rxjs';
 import { filter } from 'minimatch';
 
 export class Deck {
+    private _cardDeck: Card[] = [];
     private cardDeck$: BehaviorSubject<Card[]> = new BehaviorSubject([]);
 
     constructor() {}
@@ -13,22 +14,29 @@ export class Deck {
         return deck;
     }
 
+    setDeck(cards: Card[]) {
+        this._cardDeck = cards;
+        this.cardDeck$.next(cards.map((card) => Card.build(card)));
+
+        return this;
+    }
+
+    get cardDeck() {
+        return this._cardDeck;
+    }
+
     getDeckStream(): BehaviorSubject<Card[]> {
         return this.cardDeck$;
     }
 
-    get getDeckValue(): Card[] {
-        return this.cardDeck$.getValue();
-    }
-
-    setDeck(cards: Card[]) {
-        this.cardDeck$.next(cards.map((card) => Card.build(card)));
-        return this;
-    }
-
     addCard(card: Card) {
-        const cards = this.cardDeck$.getValue();
-        cards.push(card);
-        this.cardDeck$.next(cards);
+        this._cardDeck.push(card);
+        this.cardDeck$.next(this._cardDeck);
+    }
+
+    getCard(id: number) {
+        const card = this._cardDeck[id];
+        this._cardDeck.filter((data) => data.id != card.id);
+        return card;
     }
 }

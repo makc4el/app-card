@@ -16,13 +16,13 @@ export class PlayerComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.player.getCardList().subscribe((card) => {
-    //   this.cards = card;
-    // })
+    this.player.getCardsListStream().subscribe((card) => {
+      this.cards = card;
+    })
   }
 
-  // drop(event: CdkDragDrop<string[]>) {
-  //   moveItemInArray(this.cards, event.previousIndex, event.currentIndex);
-  // }
+  drop(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this.cards, event.previousIndex, event.currentIndex);
+  }
 
 }

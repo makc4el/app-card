@@ -34,14 +34,18 @@ export class PlaygroundComponent implements OnInit {
 
     this.playground = Playground.build({Deck: this.deck});
 
-    // this.playground.setPlayers([player1, player2, player3]);
+    [player1, player2, player3].forEach( (player) => {
+      this.playground.addPlayer(player);
+    })
 
-    // this.playground.getPlayers().subscribe( (data) => {
-    //   this.playersList = data;
-    //   this.playground.giveCardForEach();
-    // });
+    this.playground.getPlayersStream().subscribe( (data) => {
+      this.playersList = data;
+    });
   }
 
   ngOnInit() {
+    this.playground.giveCardForEach();
+    this.playground.giveCardForEach();
+    this.playground.giveCardForEach();
   }
 }

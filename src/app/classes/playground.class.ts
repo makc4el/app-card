@@ -4,9 +4,9 @@ import { Croupier } from './croupier.class';
 import { Deck } from './deck.class';
 
 export class Playground {
-    private players: Player[];
+    private _players: Player[] = [];
     private _croupier: Croupier;
-    // private players$: BehaviorSubject<Player[]> = new BehaviorSubject([]);
+    private players$: BehaviorSubject<Player[]> = new BehaviorSubject([]);
 
     constructor() {}
 
@@ -16,12 +16,13 @@ export class Playground {
         return playground;
     }
 
-    addPlayers(players) {
-    //    const playersList = players.reduce((arr, player) => {
-    //         arr.push(Player.build(player));
-    //         return arr;
-    //     }, this.players$.getValue());
-    //     this.players$.next(playersList);
+    addPlayer(player) {
+        this._players.push(Player.build(player));
+        this.players$.next(this._players);
+    }
+
+    getPlayersStream() {
+        return this.players$;
     }
 
     setCroupier(deck: Deck) {
@@ -29,22 +30,10 @@ export class Playground {
         return this;
     }
 
-    // getPlayers(): BehaviorSubject<Player[]> {
-        // return this.players$;
-    // }
-
-    // getPlayersList(): Player[] {
-        // return this.players$.getValue();
-    // }
-
-
     giveCardForEach() {
-        // this.croupier.deck.getDeckStream().subscribe((deck) => {
-        //     this.croupier.setDeckList(deck);
-        //     this.getPlayersList().forEach( (player) => {
-        //         player.addCardToList(this.croupier.getRandomCard());
-        //     });
-        // });
+        this._players.forEach((player) => {
+            player.addCardToList(this._croupier.getRandomCard());
+        })
     }
 
     giveCardToTable() {

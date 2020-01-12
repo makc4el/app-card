@@ -3,7 +3,7 @@
     <div class="playground_header_croupie">
     </div>
     <div class="playground_table">
-      <pg-playtable></pg-playtable>
+      <pg-playtable [cards]="tableList"></pg-playtable>
     </div>
     <div class="playground_players_wrapper">
       <div class="playground_players_list" *ngFor="let player of playersList">

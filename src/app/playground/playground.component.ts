@@ -18,11 +18,14 @@ export class PlaygroundComponent implements OnInit {
   private deck: Deck;
   private coupier: Croupier;
 
+  public tableList: Card[];
   public playersList: Player[];
 
   constructor(
     private deckService: DeckService
   ) {
+    this.tableList = [];
+
     let index = 0;
     this.deck = Deck.build([]);
     for(let suit of DeckMock.suitTypes) {
@@ -47,5 +50,11 @@ export class PlaygroundComponent implements OnInit {
     this.playground.giveCardForEach();
     this.playground.giveCardForEach();
     this.playground.giveCardForEach();
+
+    this.tableList.push(this.playground.getCard());
+    this.tableList.push(this.playground.getCard());
+    this.tableList.push(this.playground.getCard());
+    this.tableList.push(this.playground.getCard());
+    this.tableList.push(this.playground.getCard());
   }
 }

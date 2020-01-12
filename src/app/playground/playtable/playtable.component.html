@@ -1,1 +1,7 @@
-<p>playtable works!</p>
+<div class="playtable_wrapper">
+    <div class="playtable_list">
+        <div class="playtable_item" *ngFor="let card of cards">
+            <pg-card [card]="card"></pg-card>
+        </div>
+    </div>
+</div>

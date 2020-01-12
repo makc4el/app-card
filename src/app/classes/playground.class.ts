@@ -30,9 +30,13 @@ export class Playground {
         return this;
     }
 
+    getCard() {
+        return this._croupier.getRandomCard();
+    }
+
     giveCardForEach() {
         this._players.forEach((player) => {
-            player.addCardToList(this._croupier.getRandomCard());
+            player.addCardToList(this.getCard());
         })
     }
 

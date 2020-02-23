@@ -1,9 +1,8 @@
 <div class="player_game_board">
   <div class="player_place">
-    <div cdkDropList cdkDropListOrientation="horizontal" class="player_card_list"  (cdkDropListDropped)="drop($event)">
-      <div class="player_card_item" *ngFor="let card of cards" cdkDrag>
+    <div class="player_card_list">
+      <div class="player_card_item" *ngFor="let card of cards">
         <pg-card [card]="card"></pg-card>
-        <div class="card_placeholder" *cdkDragPlaceholder></div>
       </div>
     </div>
   </div>
@@ -16,5 +15,9 @@
       <span class="player_tile_bank">{{player.bank | currency:'USD':'symbol-narrow'}}</span>
       <span class="player_tile_name">{{player.name}}</span>
     </div>
+  <div class="player_tile_timeline_wrapper">
+    <div class="player_tile_timeline" [style.width]="(player.time * iteration) + '%'">
+    </div>
+  </div>
   </div>
 </div>

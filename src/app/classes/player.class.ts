@@ -1,15 +1,18 @@
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, timer } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { Card } from './card.class';
-
    
 export class Player {
     private _name: string;
     private _bank: number;
     private _image: string;
+    private _time: number;
     private _cardsList: Card[] = [];
     private cards$: BehaviorSubject<Card[]> = new BehaviorSubject([]);
+    private _secondsCounter$ = timer(1000, 1000);
 
-    constructor() {}
+    constructor() {
+    }
 
     static build({name, bank, img}) {
         const player = new Player()
@@ -51,6 +54,10 @@ export class Player {
         return this._cardsList;
     }
 
+    get time() {
+        return this._time;
+    }
+
     getCardsListStream(): BehaviorSubject<Card[]> {
         return this.cards$;
     }
@@ -58,5 +65,14 @@ export class Player {
     addCardToList(card: Card) {
         this._cardsList.push(card);
         this.cards$.next(this._cardsList);
+    }
+
+    startTimer(time: number) {
+        this._time = time;
+        const subscription = this._secondsCounter$.pipe(map(() => {
+            if(this._time == 0) subscription.unsubscribe();
+        })).subscribe(() => {
+            this._time -= 1;
+        });
     }
 }

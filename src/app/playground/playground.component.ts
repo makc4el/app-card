@@ -13,6 +13,7 @@ import { DeckService } from '../services/deck.service';
   templateUrl: './playground.component.html',
   styleUrls: ['./playground.component.css']
 })
+
 export class PlaygroundComponent implements OnInit {
   private playground: Playground;
   private deck: Deck;
@@ -49,12 +50,11 @@ export class PlaygroundComponent implements OnInit {
   ngOnInit() {
     this.playground.giveCardForEach();
     this.playground.giveCardForEach();
-    this.playground.giveCardForEach();
 
-    this.tableList.push(this.playground.getCard());
-    this.tableList.push(this.playground.getCard());
-    this.tableList.push(this.playground.getCard());
-    this.tableList.push(this.playground.getCard());
-    this.tableList.push(this.playground.getCard());
+    // this.tableList.push(this.playground.getCard());
+    // this.tableList.push(this.playground.getCard());
+    // this.tableList.push(this.playground.getCard());
+    // this.tableList.push(this.playground.getCard());
+    // this.tableList.push(this.playground.getCard());
   }
 }

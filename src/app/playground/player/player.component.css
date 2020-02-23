@@ -24,6 +24,8 @@
     position: relative;
     border: 2px solid #000;
     border-radius: 5px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
 }
 
 .player_tile_image {
@@ -85,4 +87,29 @@
     margin-top: 5em;
     display: inline-block;
     text-align: center; 
+}
+
+
+.player_tile_timeline_wrapper {
+    display: block;
+    width: calc(100% + 4px);
+    height: 10px;
+    border: 2px solid #000000;
+    position: absolute;
+    bottom: 0;
+    left: -2px;
+    transform: translate(0, 100%);
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background: rgba(150, 150, 150, 0.6);
+}
+
+.player_tile_timeline {
+    position: absolute;
+    height: 100%;
+    border-right: 2px solid #000;
+    left: 0;
+    top: 0;
+    background: #a0a0ff;
+    transition-duration: 0.5s;
 }

@@ -4,8 +4,8 @@ import { PlaygroundComponent } from './playground.component';
 import { PlayerComponent } from './player/player.component';
 import { CardComponent } from './card/card.component';
 import { FormsModule } from '@angular/forms';
-import { DragDropModule  } from '@angular/cdk/drag-drop';
 import { PlaytableComponent } from './playtable/playtable.component'
+
 
 @NgModule({
   declarations: [
@@ -16,8 +16,7 @@ import { PlaytableComponent } from './playtable/playtable.component'
   ],
   imports: [
     CommonModule,
-    FormsModule,
-    DragDropModule
+    FormsModule
   ],
   exports: [
     PlaygroundComponent

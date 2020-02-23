@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Player } from './../../classes/player.class';
 import { Card } from 'src/app/classes/card.class';
-import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'pg-player',
@@ -11,18 +10,17 @@ import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 export class PlayerComponent implements OnInit {
   @Input() player: Player;
   public cards: Card[];
+  public iteration: number;
 
   constructor() {
   }
 
   ngOnInit() {
+    const time = 25;
     this.player.getCardsListStream().subscribe((card) => {
       this.cards = card;
-    })
+    });
+    this.player.startTimer(time);
+    this.iteration = 100 / time;
   }
-
-  drop(event: CdkDragDrop<string[]>) {
-    moveItemInArray(this.cards, event.previousIndex, event.currentIndex);
-  }
-
 }

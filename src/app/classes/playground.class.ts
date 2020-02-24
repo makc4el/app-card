@@ -37,7 +37,7 @@ export class Playground {
     giveCardForEach() {
         this._players.forEach((player) => {
             player.addCardToList(this.getCard());
-        })
+        });
     }
 
     giveCardToTable() {

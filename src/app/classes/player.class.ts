@@ -10,6 +10,7 @@ export class Player {
     private _cardsList: Card[] = [];
     private cards$: BehaviorSubject<Card[]> = new BehaviorSubject([]);
     private _secondsCounter$ = timer(1000, 1000);
+    private _stepCounter$: BehaviorSubject<number> = new BehaviorSubject(100);
 
     constructor() {
     }
@@ -19,7 +20,8 @@ export class Player {
             .setName(name)
             .setImage(img)
             .setBank(bank)
-        
+            .setTimer(25);
+
         return player;
     }
 
@@ -35,6 +37,11 @@ export class Player {
 
     setImage(img: string) {
         this._image = img;
+        return this;
+    }
+
+    setTimer(time: number) {
+        this._time = time;
         return this;
     }
 
@@ -54,7 +61,7 @@ export class Player {
         return this._cardsList;
     }
 
-    get time() {
+    get timer() {
         return this._time;
     }
 
@@ -67,12 +74,22 @@ export class Player {
         this.cards$.next(this._cardsList);
     }
 
-    startTimer(time: number) {
-        this._time = time;
-        const subscription = this._secondsCounter$.pipe(map(() => {
-            if(this._time == 0) subscription.unsubscribe();
-        })).subscribe(() => {
-            this._time -= 1;
+    startTimer() {
+        let time = this._time;
+        let currentStep = 0;
+        const subscription = this._secondsCounter$.pipe(
+            map(() => {
+                if (time === 0) {
+                    subscription.unsubscribe();
+                    return false;
+                }
+            })
+        ).subscribe(() => {
+            time -= 1;
+            currentStep = time * (100 / this._time);
+            this._stepCounter$.next(currentStep);
         });
+
+        return this._stepCounter$.asObservable();
     }
 }

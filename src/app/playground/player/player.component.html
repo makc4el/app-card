@@ -16,7 +16,8 @@
       <span class="player_tile_name">{{player.name}}</span>
     </div>
   <div class="player_tile_timeline_wrapper">
-    <div class="player_tile_timeline" [style.width]="(player.time * iteration) + '%'">
+    {{timer}}
+    <div class="player_tile_timeline" [style.width]="currentStep + '%'">
     </div>
   </div>
   </div>

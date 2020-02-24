@@ -9,18 +9,21 @@ import { Card } from 'src/app/classes/card.class';
 })
 export class PlayerComponent implements OnInit {
   @Input() player: Player;
+
   public cards: Card[];
-  public iteration: number;
+  public currentStep: number;
 
   constructor() {
+    this.currentStep = 100;
   }
 
   ngOnInit() {
-    const time = 25;
     this.player.getCardsListStream().subscribe((card) => {
       this.cards = card;
     });
-    this.player.startTimer(time);
-    this.iteration = 100 / time;
+
+    this.player.startTimer().subscribe((data) => {
+      this.currentStep = data;
+    });
   }
 }

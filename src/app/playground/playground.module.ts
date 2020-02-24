@@ -4,12 +4,12 @@ import { PlaygroundComponent } from './playground.component';
 import { PlayerComponent } from './player/player.component';
 import { CardComponent } from './card/card.component';
 import { FormsModule } from '@angular/forms';
-import { PlaytableComponent } from './playtable/playtable.component'
+import { PlaytableComponent } from './playtable/playtable.component';
 
 
 @NgModule({
   declarations: [
-    PlaygroundComponent, 
+    PlaygroundComponent,
     PlayerComponent,
     CardComponent,
     PlaytableComponent,

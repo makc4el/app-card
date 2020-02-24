@@ -29,8 +29,8 @@ export class PlaygroundComponent implements OnInit {
 
     let index = 0;
     this.deck = Deck.build([]);
-    for(let suit of DeckMock.suitTypes) {
-      for (let value of DeckMock.suitValue) {
+    for (const suit of DeckMock.suitTypes) {
+      for (const value of DeckMock.suitValue) {
         this.deck.addCard(Card.build({value, suit, id: index}));
         index++;
       }
@@ -40,7 +40,7 @@ export class PlaygroundComponent implements OnInit {
 
     [player1, player2, player3].forEach( (player) => {
       this.playground.addPlayer(player);
-    })
+    });
 
     this.playground.getPlayersStream().subscribe( (data) => {
       this.playersList = data;
@@ -49,7 +49,7 @@ export class PlaygroundComponent implements OnInit {
 
   ngOnInit() {
     this.playground.giveCardForEach();
-    this.playground.giveCardForEach();
+    // this.playground.giveCardForEach();
 
     // this.tableList.push(this.playground.getCard());
     // this.tableList.push(this.playground.getCard());

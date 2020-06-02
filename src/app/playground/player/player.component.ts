@@ -1,20 +1,21 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Player } from './../../classes/player.class';
 import { Card } from 'src/app/classes/card.class';
+import { trigger, transition, state, style, animate } from '@angular/animations';
 
 @Component({
   selector: 'pg-player',
   templateUrl: './player.component.html',
-  styleUrls: ['./player.component.css']
+  styleUrls: ['./player.component.css'],
 })
 export class PlayerComponent implements OnInit {
   @Input() player: Player;
 
   public cards: Card[];
-  public currentStep: number;
+  // public currentStep: number;
 
   constructor() {
-    this.currentStep = 100;
+    // this.currentStep = 100;
   }
 
   ngOnInit() {
@@ -22,8 +23,8 @@ export class PlayerComponent implements OnInit {
       this.cards = card;
     });
 
-    this.player.startTimer().subscribe((data) => {
-      this.currentStep = data;
-    });
+    // this.player.startTimer().subscribe((data) => {
+    //   this.currentStep = data;
+    // });
   }
 }

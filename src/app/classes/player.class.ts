@@ -8,7 +8,7 @@ export class Player {
     private _image: string;
     private _time: number;
     private _cardsList: Card[] = [];
-    private cards$: BehaviorSubject<Card[]> = new BehaviorSubject([]);
+    private _cards$: BehaviorSubject<Card[]> = new BehaviorSubject([]);
     private _secondsCounter$ = timer(1000, 1000);
     private _stepCounter$: BehaviorSubject<number> = new BehaviorSubject(100);
 
@@ -66,12 +66,12 @@ export class Player {
     }
 
     getCardsListStream(): BehaviorSubject<Card[]> {
-        return this.cards$;
+        return this._cards$;
     }
 
     addCardToList(card: Card) {
         this._cardsList.push(card);
-        this.cards$.next(this._cardsList);
+        this._cards$.next(this._cardsList);
     }
 
     startTimer() {

@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Card } from 'src/app/classes/card.class';
+import { Table } from 'src/app/classes/table.class';
 
 @Component({
   selector: 'pg-playtable',
@@ -7,12 +8,16 @@ import { Card } from 'src/app/classes/card.class';
   styleUrls: ['./playtable.component.css']
 })
 export class PlaytableComponent implements OnInit {
+  @Input() table: Table;
 
-  @Input() cards: Card[];
+  cards: Card[] = [];
 
   constructor() { }
 
   ngOnInit() {
+    this.table.getCardsListStream().subscribe((data) => {
+      this.cards = data;
+    })
   }
 
 }

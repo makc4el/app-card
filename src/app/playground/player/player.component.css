@@ -75,6 +75,7 @@
 }
 
 .player_card_list {
+    height: 7.5em;
     margin: 0;
     margin-block-end: 0;
     margin-block-start: 0;

@@ -15,7 +15,7 @@
       <span class="player_tile_bank">{{player.bank | currency:'USD':'symbol-narrow'}}</span>
       <span class="player_tile_name">{{player.name}}</span>
     </div>
-  <div class="player_tile_timeline_wrapper">
+  <div *ngIf="currentStep" class="player_tile_timeline_wrapper">
     {{timer}}
     <div class="player_tile_timeline" [style.width]="currentStep + '%'">
     </div>

@@ -7,6 +7,7 @@ import { Card } from '../classes/card.class';
 import { Croupier } from './../classes/croupier.class'; 
 import { Player } from '../classes/player.class';
 import { DeckService } from '../services/deck.service';
+import { Table } from '../classes/table.class';
 
 @Component({
   selector: 'pg-playground',
@@ -19,25 +20,18 @@ export class PlaygroundComponent implements OnInit {
   private deck: Deck;
   private coupier: Croupier;
 
-  public tableList: Card[];
+  public table: Table;
   public playersList: Player[];
 
-  constructor(
-    private deckService: DeckService
-  ) {
-    this.tableList = [];
-
-    let index = 0;
+  constructor() {
     this.deck = Deck.build([]);
-    for (const suit of DeckMock.suitTypes) {
-      for (const value of DeckMock.suitValue) {
+    DeckMock.suitTypes.forEach((suit) => {
+      DeckMock.suitValue.forEach((value, index) => {
         this.deck.addCard(Card.build({value, suit, id: index}));
-        index++;
-      }
-    }
+      })
+    })
 
     this.playground = Playground.build({Deck: this.deck});
-
     [player1, player2, player3].forEach( (player) => {
       this.playground.addPlayer(player);
     });
@@ -45,10 +39,13 @@ export class PlaygroundComponent implements OnInit {
     this.playground.getPlayersStream().subscribe( (data) => {
       this.playersList = data;
     });
+
+    this.table = this.playground.table;
   }
 
   ngOnInit() {
-    this.playground.giveCardForEach();
+    this.playground.startGame();
+    // this.playground.giveCardForEach();
     // this.playground.giveCardForEach();
 
     // this.tableList.push(this.playground.getCard());

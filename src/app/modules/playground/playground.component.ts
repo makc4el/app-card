@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { player1, player2, player3 } from './../mock-data/players';
-import { Playground } from './../classes/playground.class';
-import { Deck } from './../classes/deck.class';
-import { DeckMock } from './../mock-data/deck';
-import { Card } from '../classes/card.class';
-import { Croupier } from './../classes/croupier.class'; 
-import { Player } from '../classes/player.class';
-import { DeckService } from '../services/deck.service';
-import { Table } from '../classes/table.class';
+import { player1, player2, player3 } from '@shared/mock-data/players';
+import { Playground } from '@shared/classes/playground.class';
+import { Deck } from '@shared/classes/deck.class';
+import { DeckMock } from '@shared/mock-data/deck';
+import { Card } from '@shared/classes/card.class';
+import { Croupier } from '@shared/classes/croupier.class'; 
+import { Player } from '@shared/classes/player.class';
+import { DeckService } from '@core/services/deck.service';
+import { Table } from '@shared/classes/table.class';
 
 @Component({
   selector: 'pg-playground',

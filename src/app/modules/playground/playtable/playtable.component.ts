@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Card } from 'src/app/classes/card.class';
-import { Table } from 'src/app/classes/table.class';
+import { Card } from '@shared/classes/card.class';
+import { Table } from '@shared/classes/table.class';
 
 @Component({
   selector: 'pg-playtable',

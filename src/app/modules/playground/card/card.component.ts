@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Card } from 'src/app/classes/card.class.js';
+import { Card } from '@shared/classes/card.class.js';
 import { cardImg } from './card-symbol';
 
 @Component({

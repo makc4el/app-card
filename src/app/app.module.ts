@@ -3,11 +3,11 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PlaygroundModule } from './playground/playground.module';
-import { InfoComponent } from './info/info.component';
-import { HeaderComponent } from './header/header.component';
+import { PlaygroundModule } from '@modules/playground/playground.module';
+import { InfoComponent } from '@modules/info/info.component';
+import { HeaderComponent } from '@modules/header/header.component';
 import { HttpClientModule }   from '@angular/common/http';
-import { DeckService } from './services/deck.service';
+import { DeckService } from '@core/services/deck.service';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({

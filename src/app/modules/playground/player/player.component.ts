@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Player } from './../../classes/player.class';
-import { Card } from 'src/app/classes/card.class';
+import { Player } from '@shared/classes/player.class';
+import { Card } from '@shared/classes/card.class';
 import { trigger, transition, state, style, animate } from '@angular/animations';
 
 @Component({

@@ -1,4 +1,4 @@
-import { CardSuit, CardValue } from "./../enums/card.enum";
+import { CardSuit, CardValue } from "@shared/models/card.enum";
 
 export class Card {
     private _value: CardValue;

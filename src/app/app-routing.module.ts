@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {PlaygroundComponent} from './playground/playground.component';
-import {InfoComponent} from './info/info.component';
+import {PlaygroundComponent} from '@modules/playground/playground.component';
+import {InfoComponent} from '@modules/info/info.component';
 
 const routes: Routes = [
   { path: '', component: PlaygroundComponent },

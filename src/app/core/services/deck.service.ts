@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Deck } from '../classes/deck.class';
+import { Deck } from '@shared/classes/deck.class';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
